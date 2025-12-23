@@ -63,6 +63,10 @@ def predict_image(image_bytes):
 def home():
     return render_template("home.html")
 
+@app.route("/realtime")
+def realtime():
+    return render_template("realtime.html")
+
 @app.route("/upload")
 def upload():
     return render_template("upload.html")
