@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WildGuard – Upload</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+}
+
+/* Modal backdrop */
+#detailsModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* <- add this */
+}
+
+#detailsModal .modal-content {
+  background: white;
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 1001; /* optional, ensures content is above backdrop */
+}
+</style>
+</head>
+
+<body>
+
+ <!-- Navbar -->
+<nav class="w-full bg-black fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16 text-white">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <img src="/static/paw.svg" class="w-8 h-8 invert" alt="WildGuard">
+        <span class="font-bold text-lg">WildGuard</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex gap-8 font-medium">
+        <a href="/" class="hover:text-gray-300 transition">Home</a>
+        <a href="/realtime" class="hover:text-gray-300 transition">Real-Time Detection</a>
+        <a href="/upload" class="hover:text-gray-300 transition">Upload Image</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden focus:outline-none text-white">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-white/20 text-white">
+    <a href="/" class="block px-4 py-3 hover:bg-white/10">Home</a>
+    <a href="/realtime" class="block px-4 py-3 hover:bg-white/10">Real-Time Detection</a>
+    <a href="/upload" class="block px-4 py-3 hover:bg-white/10">Upload Image</a>
+  </div>
+</nav>
+
+
+<main class="relative z-10 flex flex-col justify-center items-center text-center px-4 min-h-screen pt-24">
+  <div class="max-w-xl w-full text-center">
+
+    <h2 class="text-2xl font-bold mb-6">Upload Image Detection</h2>
+
+    <!-- File input -->
+    <input type="file"
+           id="fileInput"
+           accept="image/*"
+           class="block w-full mb-4"
+           onchange="previewImage(event)">
+
+    <!-- Image Preview -->
+    <div id="previewContainer" class="hidden mb-4">
+      <img id="imagePreview"
+           class="mx-auto max-h-64 rounded-xl border shadow-md">
+    </div>
+
+    <!-- Predict Button -->
+    <button onclick="uploadImage()"
+            class="w-full bg-black text-white py-2 rounded-xl mb-4">
+      Predict Image
+    </button>
+
+    <!-- Results -->
+    <div id="uploadResults" class="mt-4 space-y-2"></div>
+
+  </div>
+</main>
+
+<!-- Modal for Details -->
+<div id="detailsModal" class="flex">
+  <div class="modal-content">
+    <h3 class="text-xl font-semibold mb-3">Details & Safety Tips</h3>
+    <div id="modalText" class="text-gray-800 text-left"></div>
+    <button onclick="closeModal()"
+            class="mt-4 bg-black text-white px-4 py-2 rounded-lg">
+      Close
+    </button>
+  </div>
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-10 w-full mt-auto">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row md:justify-between gap-10">
+
+      <!-- Paw Logo Section -->
+      <div class="flex flex-col items-center md:items-start">
+        <img src="/static/paw.svg" alt="WildGuard Logo"
+             class="w-20 mb-2 invert">
+        <span class="text-xl font-bold tracking-wide">WildGuard</span>
+      </div>
+
+ <!-- Main Logo -->
+<div class="flex flex-col items-center justify-center md:items-start">
+  <img src="/static/logo.png"
+       alt="RDM Software"
+       class="w-32 md:w-40">
+
+  <span class="text-white text-xs md:text-sm font-semibold tracking-widest mt-1 ml-[6px]">
+    RDM SOFTWARE
+  </span>
+</div>
+
+      <!-- Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm flex-1">
+
+        <!-- About -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">About WildGuard</h3>
+          <p class="text-gray-400 leading-relaxed">
+            WildGuard is an AI-powered animal recognition platform using deep learning
+            to identify animals through real-time camera feeds or uploaded images.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Features</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>Real-Time Animal Detection</li>
+            <li>Image Upload Predictions</li>
+            <li>Confidence-Based Results</li>
+            <li>Mobile Optimized Interface</li>
+          </ul>
+        </div>
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Explore</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>How It Works</li>
+            <li>AI Models</li>
+            <li>Documentation</li>
+            <li>About the Project</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-white/10 mt-10 pt-4 text-center text-gray-500 text-sm">
+      © 2025 WildGuard. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+function previewImage(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById("imagePreview").src = e.target.result;
+    document.getElementById("previewContainer").classList.remove("hidden");
+  };
+  reader.readAsDataURL(file);
+}
+
+async function uploadImage() {
+  const file = document.getElementById("fileInput").files[0];
+  if (!file) return;
+
+  const fd = new FormData();
+  fd.append("image", file);
+
+  const res = await fetch("/predict", {
+    method: "POST",
+    body: fd
+  });
+  const data = await res.json();
+
+  // Render results with Details button
+  const container = document.getElementById("uploadResults");
+  container.innerHTML = "";
+
+  if (!data.predictions || data.predictions.length === 0) {
+    container.innerHTML = "<p>No predictions found.</p>";
+    return;
+  }
+
+  // Show each prediction
+  data.predictions.forEach((p, idx) => {
+    const div = document.createElement("div");
+    div.className = "border rounded-xl p-3 text-left";
+    div.innerHTML = `
+      <div class="flex justify-between">
+        <span>${p.label}</span>
+        <span>${p.confidence}%</span>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+
+  // Add Details button for highest confidence
+  const top = data.predictions[0];
+  const btn = document.createElement("button");
+  btn.innerText = "Details & Safety Tips";
+  btn.className = "mt-4 bg-black text-white px-4 py-2 rounded-lg";
+  btn.onclick = () => showDetails(top.label);
+  container.appendChild(btn);
+}
+
+// Show modal
+async function showDetails(animal) {
+  const modal = document.getElementById("detailsModal");
+  const textDiv = document.getElementById("modalText");
+
+  textDiv.innerHTML = "Loading details...";
+  modal.style.display = "flex";
+
+  try {
+    const res = await fetch(`/animal-details?animal=${encodeURIComponent(animal)}`);
+    const data = await res.json();
+
+    // Use the correct keys from JSON
+    textDiv.innerHTML = `
+      <p><strong>Description:</strong> ${data.description}</p>
+      <p><strong>Safety Tips:</strong> ${data.safety_tips}</p>
+    `;
+  } catch (e) {
+    textDiv.innerText = "Failed to load details.";
+    console.error(e);
+  }
+}
+
+
+function closeModal() {
+  document.getElementById("detailsModal").style.display = "none";
+}
+
+document.getElementById("menuBtn").onclick = () =>
+  document.getElementById("mobileMenu").classList.toggle("hidden");
+</script>
+
+</body>
+</html>

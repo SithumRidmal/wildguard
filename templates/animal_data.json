@@ -1,0 +1,202 @@
+{
+  "lion": {
+    "description": "The lion is a large wild cat known for its strength and pride-based social structure.",
+    "safety_tips": "Do not approach lions in the wild. Keep a safe distance and never provoke them."
+  },
+  "tiger": {
+    "description": "Tigers are solitary, powerful cats found mainly in Asia, with distinctive stripes.",
+    "safety_tips": "Avoid forests where tigers roam. Make noise when hiking and never get too close."
+  },
+  "elephant": {
+    "description": "Elephants are the largest land mammals, known for their intelligence and strong social bonds.",
+    "safety_tips": "Keep distance from elephants in the wild. Never block their path or come between mothers and calves."
+  },
+  "bear": {
+    "description": "Bears are large mammals that can be dangerous if surprised or provoked.",
+    "safety_tips": "Store food away from campsites, carry bear spray, and avoid direct encounters."
+  },
+  "wolf": {
+    "description": "Wolves are social carnivores, usually found in packs.",
+    "safety_tips": "Do not feed or approach wolves. Keep pets on a leash and avoid dens."
+  },
+  "crocodile": {
+    "description": "Crocodiles are large aquatic reptiles found in rivers and lakes.",
+    "safety_tips": "Stay away from water edges. Avoid swimming in areas known for crocodiles."
+  },
+  "snake": {
+    "description": "Snakes are legless reptiles; some are venomous.",
+    "safety_tips": "Watch where you step, do not touch unknown snakes, and wear boots when hiking."
+  },
+  "hippopotamus": {
+    "description": "Hippos are large, aggressive herbivores found in African rivers and lakes.",
+    "safety_tips": "Keep boats at a safe distance and never stand between a hippo and water."
+  },
+  "kangaroo": {
+    "description": "Kangaroos are large marsupials from Australia known for hopping and strong legs.",
+    "safety_tips": "Do not approach or feed wild kangaroos. Be cautious when driving in rural areas."
+  },
+  "giraffe": {
+    "description": "Giraffes are tall herbivores with long necks, native to Africa.",
+    "safety_tips": "Observe from a distance and avoid standing near them as they can kick if threatened."
+  },
+  "zebra": {
+    "description": "Zebras are African equids known for their black-and-white stripes.",
+    "safety_tips": "Keep distance in the wild. Do not attempt to feed or chase them."
+  },
+  "cheetah": {
+    "description": "Cheetahs are fast African predators with slender bodies and spotted coats.",
+    "safety_tips": "Observe from a safe distance; never attempt to approach a cheetah."
+  },
+  "leopard": {
+    "description": "Leopards are agile cats with distinctive rosette-patterned coats.",
+    "safety_tips": "Avoid areas where leopards are active. Do not leave pets outside unattended."
+  },
+  "hyena": {
+    "description": "Hyenas are social carnivores known for scavenging and powerful jaws.",
+    "safety_tips": "Do not leave food unsecured. Keep a safe distance from hyena packs."
+  },
+  "monkey": {
+    "description": "Monkeys are primates that can be found in forests and urban areas.",
+    "safety_tips": "Do not feed or tease monkeys. Secure belongings as they may snatch items."
+  },
+  "gorilla": {
+    "description": "Gorillas are large primates living in African forests with strong social groups.",
+    "safety_tips": "Observe from a distance. Avoid direct eye contact or loud noises."
+  },
+  "chimpanzee": {
+    "description": "Chimpanzees are intelligent primates found in African forests.",
+    "safety_tips": "Do not approach or feed chimps. Maintain safe viewing distance."
+  },
+  "rhino": {
+    "description": "Rhinoceroses are large herbivores with thick skin and one or two horns.",
+    "safety_tips": "Keep a safe distance and do not block their path in the wild."
+  },
+  "buffalo": {
+    "description": "Buffalo are large herbivores found in Africa and Asia.",
+    "safety_tips": "Do not get too close; they can charge if threatened."
+  },
+  "deer": {
+    "description": "Deer are herbivores found worldwide in forests and grasslands.",
+    "safety_tips": "Observe from a distance. Do not try to feed wild deer."
+  },
+  "moose": {
+    "description": "Moose are large deer species found in northern forests.",
+    "safety_tips": "Keep distance, especially from males in rutting season, as they can be aggressive."
+  },
+  "fox": {
+    "description": "Foxes are small to medium carnivores known for their cunning and adaptability.",
+    "safety_tips": "Avoid feeding. Keep pets safe and secure trash bins."
+  },
+  "raccoon": {
+    "description": "Raccoons are nocturnal mammals known for dexterous paws.",
+    "safety_tips": "Do not feed raccoons. Secure food and garbage to avoid encounters."
+  },
+  "skunk": {
+    "description": "Skunks are small mammals capable of spraying a strong-smelling liquid.",
+    "safety_tips": "Keep distance. Do not attempt to touch or corner a skunk."
+  },
+  "otter": {
+    "description": "Otters are playful aquatic mammals found in rivers and coastal areas.",
+    "safety_tips": "Observe from a distance. Do not disturb their habitat."
+  },
+  "beaver": {
+    "description": "Beavers are semi-aquatic rodents known for building dams.",
+    "safety_tips": "Avoid disturbing dams. Keep pets away from their territory."
+  },
+  "eagle": {
+    "description": "Eagles are large birds of prey with excellent vision.",
+    "safety_tips": "Observe from a distance; do not approach nests."
+  },
+  "hawk": {
+    "description": "Hawks are birds of prey known for sharp talons and hunting skills.",
+    "safety_tips": "Do not approach nests or attempt to feed wild hawks."
+  },
+  "owl": {
+    "description": "Owls are nocturnal birds with exceptional vision and silent flight.",
+    "safety_tips": "Observe quietly from a distance; avoid disturbing roosts."
+  },
+  "falcon": {
+    "description": "Falcons are fast birds of prey known for their hunting dives.",
+    "safety_tips": "Do not approach nesting areas. Keep distance from wild falcons."
+  },
+  "parrot": {
+    "description": "Parrots are colorful, intelligent birds often found in tropical forests.",
+    "safety_tips": "Observe from a distance; do not attempt to capture wild parrots."
+  },
+  "peacock": {
+    "description": "Peacocks are large, colorful birds known for their iridescent tail feathers.",
+    "safety_tips": "Keep distance; avoid loud noises near wild peacocks."
+  },
+  "pigeon": {
+    "description": "Pigeons are urban-dwelling birds found worldwide.",
+    "safety_tips": "Avoid feeding large groups; maintain hygiene."
+  },
+  "dove": {
+    "description": "Doves are gentle birds often symbolizing peace.",
+    "safety_tips": "Observe from a distance; do not disturb nests."
+  },
+  "penguin": {
+    "description": "Penguins are flightless birds living mostly in the Southern Hemisphere.",
+    "safety_tips": "Observe from a distance. Avoid disturbing colonies."
+  },
+  "seal": {
+    "description": "Seals are marine mammals found on coasts and ice flows.",
+    "safety_tips": "Do not approach; maintain a safe distance from haul-outs."
+  },
+  "sea_lion": {
+    "description": "Sea lions are marine mammals with external ears and strong flippers.",
+    "safety_tips": "Observe from a distance; avoid sudden movements near them."
+  },
+  "whale": {
+    "description": "Whales are large marine mammals known for their size and intelligence.",
+    "safety_tips": "Observe from boats at a safe distance; never attempt to touch or feed."
+  },
+  "dolphin": {
+    "description": "Dolphins are intelligent marine mammals known for playful behavior.",
+    "safety_tips": "Observe from boats; do not chase or harass wild dolphins."
+  },
+  "shark": {
+    "description": "Sharks are predatory fish found in oceans worldwide.",
+    "safety_tips": "Follow swimming safety guidelines. Avoid areas where sharks are known to feed."
+  },
+  "octopus": {
+    "description": "Octopuses are intelligent cephalopods with eight arms and soft bodies.",
+    "safety_tips": "Do not touch unknown species; observe safely in aquariums or reefs."
+  },
+  "jellyfish": {
+    "description": "Jellyfish are marine invertebrates that can sting.",
+    "safety_tips": "Avoid touching jellyfish; wear protective footwear in water if needed."
+  },
+  "crab": {
+    "description": "Crabs are crustaceans found in oceans and coastal areas.",
+    "safety_tips": "Avoid handling unfamiliar crabs; watch for pinchers."
+  },
+  "lobster": {
+    "description": "Lobsters are large marine crustaceans with strong claws.",
+    "safety_tips": "Do not touch wild lobsters; use tools for handling in seafood markets."
+  },
+  "frog": {
+    "description": "Frogs are amphibians that live in water and on land.",
+    "safety_tips": "Do not touch unknown frogs; some species are poisonous."
+  },
+  "toad": {
+    "description": "Toads are amphibians with dry, bumpy skin.",
+    "safety_tips": "Avoid handling unknown species; wash hands if touched."
+  },
+  "salamander": {
+    "description": "Salamanders are small amphibians with moist skin.",
+    "safety_tips": "Do not touch wild salamanders; some secrete toxins."
+  },
+  "newt": {
+    "description": "Newts are small amphibians related to salamanders.",
+    "safety_tips": "Observe from a distance; avoid touching wild specimens."
+  },
+  "turtle": {
+    "description": "Turtles are reptiles with protective shells.",
+    "safety_tips": "Do not disturb nests; handle carefully if necessary."
+  },
+  "tortoise": {
+    "description": "Tortoises are land-dwelling reptiles with hard shells.",
+    "safety_tips": "Avoid handling; keep distance in the wild."
+  }
+}

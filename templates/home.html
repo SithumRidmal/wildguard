@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WildGuard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #fff;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* main content takes available space so footer sticks at bottom */
+}
+
+.paw {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
+/* Spinner */
+#newsGrid.loading::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #e5e7eb;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="w-full bg-black fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16 text-white">
+      <div class="flex items-center gap-2">
+        <img src="/static/paw.svg" class="w-8 h-8 invert" alt="WildGuard">
+        <span class="font-bold text-lg">WildGuard</span>
+      </div>
+      <div class="hidden md:flex gap-8 font-medium">
+        <a href="/" class="hover:text-gray-300 transition">Home</a>
+        <a href="/realtime" class="hover:text-gray-300 transition">Real-Time Detection</a>
+        <a href="/upload" class="hover:text-gray-300 transition">Upload Image</a>
+      </div>
+      <button id="menuBtn" class="md:hidden focus:outline-none text-white">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-white/20 text-white">
+    <a href="/" class="block px-4 py-3 hover:bg-white/10">Home</a>
+    <a href="/realtime" class="block px-4 py-3 hover:bg-white/10">Real-Time Detection</a>
+    <a href="/upload" class="block px-4 py-3 hover:bg-white/10">Upload Image</a>
+  </div>
+</nav>
+
+<main class="relative z-10 flex flex-col justify-center items-center text-center px-4 min-h-screen pt-24">
+  <h1 class="text-4xl font-bold mb-4">🐾 WildGuard</h1>
+  <p class="max-w-xl text-gray-600 mb-8">
+    WildGuard is an AI-powered animal recognition system that uses deep learning
+    to identify animals in real-time or from uploaded images, helping monitor
+    wildlife efficiently and intelligently.
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4">
+    <a href="/realtime"
+       class="px-6 py-3 bg-black text-white rounded-xl hover:scale-105 transition">
+       Real-Time Detection
+    </a>
+    <a href="/upload"
+       class="px-6 py-3 bg-black text-white rounded-xl hover:scale-105 transition">
+       Upload Image
+    </a>
+  </div>
+
+  <!-- Wild News Section -->
+<section class="w-full max-w-6xl mt-20 px-4">
+  <h2 class="text-3xl font-bold mb-8 text-center">🌿 Wild News</h2>
+  <div id="newsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- News cards will be injected here -->
+  </div>
+</section>
+</main>
+
+<br>
+<!-- Footer -->
+<footer class="bg-black text-white py-10 w-full mt-auto">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:justify-between gap-10">
+      <div class="flex flex-col items-center md:items-start">
+        <img src="/static/paw.svg" alt="WildGuard Logo" class="w-20 mb-2 invert">
+        <span class="text-xl font-bold tracking-wide">WildGuard</span>
+      </div>
+      <div class="flex flex-col items-center justify-center md:items-start">
+        <img src="/static/logo.png" alt="RDM Software" class="w-32 md:w-40">
+        <span class="text-white text-xs md:text-sm font-semibold tracking-widest mt-1 ml-[6px]">
+          RDM SOFTWARE
+        </span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm flex-1">
+        <div>
+          <h3 class="text-lg font-semibold mb-3">About WildGuard</h3>
+          <p class="text-gray-400 leading-relaxed">
+            WildGuard is an AI-powered animal recognition platform using deep learning
+            to identify animals through real-time camera feeds or uploaded images.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Features</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>Real-Time Animal Detection</li>
+            <li>Image Upload Predictions</li>
+            <li>Confidence-Based Results</li>
+            <li>Mobile Optimized Interface</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Explore</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>How It Works</li>
+            <li>AI Models</li>
+            <li>Documentation</li>
+            <li>About the Project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 mt-10 pt-4 text-center text-gray-500 text-sm">
+      © 2025 WildGuard. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+const PAW_SVG = '/static/paw.svg';
+const PAW_COUNT = 15;
+
+function createPaw() {
+  const paw = document.createElement('div');
+  paw.classList.add('paw');
+  paw.style.backgroundImage = `url('${PAW_SVG}')`;
+  const startX = Math.random() * window.innerWidth;
+  const startY = Math.random() * window.innerHeight;
+  paw.style.left = `${startX}px`;
+  paw.style.top = `${startY}px`;
+  const size = 20 + Math.random() * 30;
+  paw.style.width = `${size}px`;
+  paw.style.height = `${size}px`;
+  const maxMoveX = window.innerWidth * 0.2;
+  const maxMoveY = window.innerHeight * 0.2;
+  const moveX = (Math.random() - 0.5) * maxMoveX * 2;
+  const moveY = (Math.random() - 0.5) * maxMoveY * 2;
+  const duration = 8 + Math.random() * 8;
+  paw.animate([
+    { transform: `translate(0px, 0px) rotate(0deg)`, opacity: 0 },
+    { transform: `translate(${moveX}px, ${moveY}px) rotate(${Math.random()*360}deg)`, opacity: 0.08 },
+    { transform: `translate(${moveX*2}px, ${moveY*2}px) rotate(${Math.random()*720}deg)`, opacity: 0 }
+  ], {
+    duration: duration * 1000,
+    iterations: 1,
+    easing: 'linear'
+  });
+  document.body.appendChild(paw);
+  setTimeout(() => paw.remove(), duration * 1000);
+}
+
+setInterval(() => { for (let i = 0; i < PAW_COUNT; i++) createPaw(); }, 2000);
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+menuBtn.addEventListener("click", () => { mobileMenu.classList.toggle("hidden"); });
+
+async function loadRSSNews() {
+  const rssFeeds = [
+    { url: "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml", limit: 4 },
+    { url: "https://www.nationalgeographic.com/content/natgeo/en_us/news/animals.rss", limit: 4 }
+  ];
+
+  const grid = document.getElementById("newsGrid");
+  grid.innerHTML = "";
+  grid.classList.add("loading"); // show spinner
+
+  for (const feed of rssFeeds) {
+    try {
+      const res = await fetch(
+        `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`
+      );
+      const data = await res.json();
+      if (!data.contents) continue;
+
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(data.contents, "text/xml");
+      const items = xml.querySelectorAll("item");
+
+      let count = 0;
+
+      for (const item of items) {
+        if (count >= feed.limit) break;
+        const title = item.querySelector("title")?.textContent || "";
+        const link = item.querySelector("link")?.textContent || "#";
+        const pubDate = item.querySelector("pubDate")?.textContent || "";
+
+        const keywords = ["animal", "wild", "nature", "species", "conservation", "ecosystem"];
+        if (!keywords.some(k => title.toLowerCase().includes(k))) continue;
+
+        let img = "";
+        const thumb = item.querySelector("media\\:thumbnail");
+        if (thumb) img = thumb.getAttribute("url");
+        if (!img) {
+          const media = item.querySelector("media\\:content");
+          if (media) img = media.getAttribute("url");
+        }
+        if (!img) {
+          const desc = item.querySelector("description")?.textContent || "";
+          const temp = document.createElement("div");
+          temp.innerHTML = desc;
+          const imgTag = temp.querySelector("img");
+          if (imgTag) img = imgTag.src;
+        }
+        if (!img) img = "https://www.srilankatourismatoz.com/wp-content/uploads/2023/07/49505695453_c127cb7d5d_o.jpg";
+
+        const description = item.querySelector("description")?.textContent
+          .replace(/<[^>]*>/g, "")
+          .slice(0, 120) + "...";
+
+        grid.innerHTML += `
+          <a href="${link}" target="_blank"
+              class="bg-black rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 overflow-hidden">
+            <img src="${img}" class="h-48 w-full object-cover" loading="lazy">
+            <div class="p-4">
+              <h3 class="font-semibold text-lg mb-2 line-clamp-2 text-white">${title}</h3>
+              <p class="text-gray-300 text-sm line-clamp-3">${description}</p>
+              <span class="block mt-3 text-xs text-gray-400">
+                ${new Date(pubDate).toDateString()}
+              </span>
+            </div>
+          </a>
+        `;
+        count++;
+      }
+
+    } catch (e) {
+      console.error("RSS error:", e);
+    }
+  }
+  grid.classList.remove("loading"); // hide spinner
+}
+
+loadRSSNews();
+</script>
+</body>
+</html>
