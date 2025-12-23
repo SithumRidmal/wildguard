@@ -10,14 +10,39 @@ const SMOOTHING_WINDOW = 5;
 const CAPTURE_INTERVAL = 800;
 
 // ---------- START CAMERA ----------
-async function startCamera() {
-  if (video.srcObject) return; // prevent double start
+async function startCamera(useBackCamera = true) {
+  // Stop previous stream if exists
+  if (video.srcObject) {
+    video.srcObject.getTracks().forEach(track => track.stop());
+    video.srcObject = null;
+  }
 
-  const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-  video.srcObject = stream;
+  try {
+    // Try to open requested camera
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: useBackCamera ? { exact: "environment" } : "user"
+      },
+      audio: false
+    });
+    video.srcObject = stream;
 
+  } catch (error) {
+    console.warn("Requested camera not available, using default camera", error);
+
+    // Fallback to any available camera
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: false
+    });
+    video.srcObject = stream;
+  }
+
+  // Clear previous interval if exists
+  if (captureTimer) clearInterval(captureTimer);
   captureTimer = setInterval(captureFrame, CAPTURE_INTERVAL);
 }
+
 
 // ---------- CAPTURE FRAME ----------
 async function captureFrame() {

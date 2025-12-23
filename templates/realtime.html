@@ -77,12 +77,18 @@ if (!confirm("This feature will access your camera. Do you want to continue?")) 
 <h2 class="text-2xl font-bold text-center mb-4">Real-Time Animal Detection</h2>
 
 <div class="max-w-xl w-full">
-  <button onclick="startCamera()"
-          class="w-full bg-black text-white py-2 rounded-xl mb-4">
-    Open Camera
-  </button>
+  <div class="flex gap-2 mb-4">
+    <button onclick="startCamera(true)"
+            class="flex-1 bg-black text-white py-2 rounded-xl">
+      Back Camera
+    </button>
+    <button onclick="startCamera(false)"
+            class="flex-1 bg-gray-700 text-white py-2 rounded-xl">
+      Front Camera
+    </button>
+  </div>
 
-  <video id="video" autoplay muted
+  <video id="video" autoplay muted playsinline
          class="w-full rounded-xl bg-black"></video>
 
   <canvas id="canvas" width="224" height="224" class="hidden"></canvas>
